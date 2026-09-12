@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Inbound Sales Form</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #070b14;
+            --card: #0d1527;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin: 0 0 6px 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        p.subtitle {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .form-group {
+            margin-bottom: 14px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text);
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+        }
+        select option {
+            background: var(--card);
+            color: var(--text);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 6px;
+        }
+        button:hover {
+            opacity: 0.95;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 10px;
+        }
+        .success-message h3 {
+            color: #34d399;
+            margin: 12px 0 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="formHeader">
+            <h2>Get in Touch</h2>
+            <p class="subtitle">Our AI Sales Employee will respond within seconds.</p>
+        </div>
+
+        <form id="leadForm">
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Smith">
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="email">Work Email *</label>
+                    <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Acme Inc">
+            </div>
+
+            <div class="form-group">
+                <label for="requirement">What service are you looking for? *</label>
+                <textarea id="requirement" name="requirement" rows="3" placeholder="e.g. We need a custom web app with payment gateway..." required></textarea>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="budget">Estimated Budget (₹)</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select range...</option>
+                        <option value="50000">₹50,000 – ₹1,00,000</option>
+                        <option value="200000">₹1,00,000 – ₹3,00,000</option>
+                        <option value="500000">₹3,00,000 – ₹7,00,000</option>
+                        <option value="1000000">₹7,00,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timeline">Timeline</label>
+                    <select id="timeline" name="timeline">
+                        <option value="">Select timeline...</option>
+                        <option value="ASAP">Immediately / ASAP</option>
+                        <option value="1_MONTH">Within 1 Month</option>
+                        <option value="3_MONTHS">1-3 Months</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">Send Inquiry</button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h3>Inquiry Received!</h3>
+            <p style="color: var(--text-muted); font-size: 13px;">Our AI Sales Employee has received your details and is preparing an immediate response.</p>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const tenantSlug = urlParams.get('slug') || 'data-nex-store';
+        const API_URL = 'http://localhost:8080/api/v1/webhooks/leads/' + tenantSlug;
+
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerText = 'Submitting...';
+
+            const formData = {
+                firstName: form.firstName.value,
+                lastName: form.lastName.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                company: form.company.value,
+                requirement: form.requirement.value,
+                estimatedBudget: form.budget.value ? parseInt(form.budget.value) : undefined,
+                timeline: form.timeline.value,
+                source: 'WEBSITE_FORM'
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('formHeader').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert('Could not submit inquiry. Check if backend is running.');
+                    btn.disabled = false;
+                    btn.innerText = 'Send Inquiry';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Connection failed to backend API (http://localhost:8080).');
+                btn.disabled = false;
+                btn.innerText = 'Send Inquiry';
+            }
+        });
+    </script>
+</body>
+</html>

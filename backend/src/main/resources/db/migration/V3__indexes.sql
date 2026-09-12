@@ -1,0 +1,18 @@
+CREATE INDEX idx_lead_tenant_status ON lead(tenant_id, status);
+CREATE INDEX idx_lead_tenant_score ON lead(tenant_id, score DESC);
+CREATE INDEX idx_lead_tenant_created ON lead(tenant_id, created_at DESC);
+CREATE INDEX idx_lead_email ON lead(email);
+CREATE INDEX idx_conversation_lead ON conversation(lead_id);
+CREATE INDEX idx_conversation_tenant ON conversation(tenant_id);
+CREATE INDEX idx_message_conversation ON message(conversation_id);
+CREATE INDEX idx_message_tenant_created ON message(tenant_id, created_at DESC);
+CREATE INDEX idx_agent_action_tenant_lead ON agent_action(tenant_id, lead_id);
+CREATE INDEX idx_agent_action_tenant_created ON agent_action(tenant_id, created_at DESC);
+CREATE INDEX idx_audit_log_tenant_created ON audit_log(tenant_id, created_at DESC);
+CREATE INDEX idx_scheduled_followup_status_scheduled ON scheduled_follow_up(status, scheduled_at);
+CREATE INDEX idx_scheduled_followup_tenant_lead ON scheduled_follow_up(tenant_id, lead_id);
+CREATE INDEX idx_notification_user_read ON notification(user_id, is_read);
+CREATE INDEX idx_integration_tenant_type ON integration(tenant_id, type);
+CREATE INDEX idx_knowledge_doc_tenant ON knowledge_document(tenant_id, is_active);
+CREATE INDEX idx_membership_tenant_user ON membership(tenant_id, user_id);
+CREATE INDEX idx_prompt_version_name_active ON prompt_version(name, is_active);

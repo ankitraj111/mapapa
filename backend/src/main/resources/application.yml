@@ -1,0 +1,66 @@
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/airevenue}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+      connect-timeout: 2000ms
+  cache:
+    type: simple   # fallback to in-memory if Redis is unavailable
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: 587
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:dummy}
+            client-secret: ${GOOGLE_CLIENT_SECRET:dummy}
+            scope: openid,email,profile
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-in-production-use-256-bit-key-for-jwt-signature-algorithm-h256}
+    access-token-expiry: 3600000
+    refresh-token-expiry: 604800000
+  openai:
+    api-key: ${OPENAI_API_KEY:}
+    default-model: gpt-4o
+    max-tokens: 2000
+  frontend-url: ${FRONTEND_URL:http://localhost:3001}
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+razorpay:
+  key-id: ${RAZORPAY_KEY_ID:rzp_test_TYP96qdegz7nIV}
+  key-secret: ${RAZORPAY_KEY_SECRET:kZjnPVYSUgf5kT2Cz4QkpGuk}
+  webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:kZjnPVYSUgf5kT2Cz4QkpGuk}
+
