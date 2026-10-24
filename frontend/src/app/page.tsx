@@ -263,7 +263,7 @@ export default function LandingPage() {
                   <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                     {/* Col 1 */}
                     <div className="space-y-3.5">
-                      <a href="#how-it-works" onClick={() => setActiveNavDropdown(null)} className="group block text-left">
+                      <a href="/enterprise-ai-deployment" onClick={() => setActiveNavDropdown(null)} className="group block text-left cursor-pointer">
                         <div className="text-[13.5px] font-semibold text-slate-900 group-hover:text-[#e8572a] transition-colors leading-tight">
                           Enterprise AI Deployment
                         </div>
@@ -272,7 +272,7 @@ export default function LandingPage() {
                         </div>
                       </a>
 
-                      <a href="#demo" onClick={() => setActiveNavDropdown(null)} className="group block text-left">
+                      <a href="/ai-sales-agent-builder" onClick={() => setActiveNavDropdown(null)} className="group block text-left cursor-pointer">
                         <div className="text-[13.5px] font-semibold text-slate-900 group-hover:text-[#e8572a] transition-colors leading-tight">
                           AI Sales Agent Builder
                         </div>
@@ -281,7 +281,7 @@ export default function LandingPage() {
                         </div>
                       </a>
 
-                      <a href="#demo" onClick={() => setActiveNavDropdown(null)} className="group block text-left">
+                      <a href="/autonomous-inbound-calling" onClick={() => setActiveNavDropdown(null)} className="group block text-left cursor-pointer">
                         <div className="text-[13.5px] font-semibold text-slate-900 group-hover:text-[#e8572a] transition-colors leading-tight">
                           Autonomous Inbound Calling
                         </div>
@@ -290,7 +290,7 @@ export default function LandingPage() {
                         </div>
                       </a>
 
-                      <a href="#scrubber" onClick={() => setActiveNavDropdown(null)} className="group block text-left">
+                      <a href="/call-scrubber-replay" onClick={() => setActiveNavDropdown(null)} className="group block text-left cursor-pointer">
                         <div className="text-[13.5px] font-semibold text-slate-900 group-hover:text-[#e8572a] transition-colors leading-tight">
                           Call Scrubber & Replay
                         </div>
@@ -302,7 +302,7 @@ export default function LandingPage() {
 
                     {/* Col 2 */}
                     <div className="space-y-3.5">
-                      <a href="#dashboard" onClick={() => setActiveNavDropdown(null)} className="group block text-left">
+                      <a href="/live-command-center" onClick={() => setActiveNavDropdown(null)} className="group block text-left cursor-pointer">
                         <div className="text-[13.5px] font-semibold text-slate-900 group-hover:text-[#e8572a] transition-colors leading-tight">
                           Live Command Center
                         </div>
@@ -658,7 +658,7 @@ export default function LandingPage() {
           <div className="border-b border-slate-200 bg-white px-6 py-5 lg:hidden space-y-3 shadow-lg">
             <a href="#playbooks" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-sm font-semibold text-slate-800">Industry Playbooks</a>
             <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-sm font-semibold text-slate-800">Architecture & Webhooks</a>
-            <a href="#dashboard" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-sm font-semibold text-slate-800">Command Center</a>
+            <a href="/live-command-center" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-sm font-semibold text-slate-800">Live Command Center</a>
             <a href="#case-studies" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-sm font-semibold text-slate-800">Economics & Headcount</a>
             <a href="#security" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-sm font-semibold text-slate-800">Security & SLA</a>
             <a href="#reviews" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-sm font-semibold text-slate-800">Client Reviews</a>
@@ -2032,13 +2032,13 @@ export default function LandingPage() {
               </h4>
               <ul className="space-y-2.5 text-[13px]">
                 {[
-                  { label: 'Enterprise Deployment', href: '#pricing' },
+                  { label: 'Enterprise Deployment', href: '/enterprise-ai-deployment' },
                   { label: 'Platform overview', href: '#how-it-works' },
-                  { label: 'Agent Builder', href: '#demo' },
+                  { label: 'AI Sales Agent Builder', href: '/ai-sales-agent-builder' },
                   { label: 'Knowledge Base', href: '#how-it-works' },
-                  { label: 'Inbound Calls', href: '#demo' },
+                  { label: 'Autonomous Inbound Calling', href: '/autonomous-inbound-calling' },
                   { label: 'Outbound Campaigns', href: '#playbooks' },
-                  { label: 'Call Analytics', href: '#scrubber' },
+                  { label: 'Call Scrubber & Replay', href: '/call-scrubber-replay' },
                   { label: 'APIs & Webhooks', href: '#how-it-works' },
                   { label: 'Languages & Voices', href: '#scrubber' },
                 ].map((item, idx) => (
